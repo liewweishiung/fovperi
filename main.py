@@ -1,5 +1,5 @@
 import cv2, numpy as np, os, json, tensorflow as tf, random, shutil, math, time, h5py, SharedArray as sa, argparse;
-from utils.preprocess import printProgressBar, printLoader;
+# from utils.preprocess import printProgressBar, printLoader;
 from keras.backend.tensorflow_backend import set_session;
 
 parser = argparse.ArgumentParser();
@@ -19,7 +19,7 @@ print( '################################################################' );
 print( 'Model: ' + str( args.model ) );
 print( '\nTask: ' + str( args.task ) );
 print( '################################################################' );
-printLoader = printLoader( args.model );
+# printLoader = printLoader( args.model );
 
 my_index = 0;
 other_index = 1;
@@ -215,7 +215,7 @@ if args.task == 'train':
 				cur, total = gen_batch.current_progress();
 				loss_string = Statter.getLossString( cur, total );
 
-				printProgressBar( cur, total, prefix = str(cur) + '/' + str( total ), suffix = '| ' + loss_string );
+# 				printProgressBar( cur, total, prefix = str(cur) + '/' + str( total ), suffix = '| ' + loss_string );
 
 		print( '\n' );
 
@@ -274,32 +274,9 @@ if args.task == 'test':
 			cur, total = test_gen_batch.current_progress();
 			loss_string = TestStatter.getLossString( cur, total );
 
-			printProgressBar( cur, total, prefix = str(cur) + '/' + str( total ), suffix = '| ' + loss_string );
+# 			printProgressBar( cur, total, prefix = str(cur) + '/' + str( total ), suffix = '| ' + loss_string );
 
 	loss_string = TestStatter.getLossString( total, total );
 	print( loss_string + '                                                                     \n' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 quit();
