@@ -13,6 +13,10 @@ Code accompanying the paper "Biologically inspired deep learning model for effic
 - albumentations 0.4.5
 - opencv-python 4.2.0.32
 - h5py 2.9.0
+- scikit-learn
+- numexpr
+- pydot
+- graphviz
 
 ## Overview
 
