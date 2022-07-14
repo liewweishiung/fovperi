@@ -1,7 +1,7 @@
 import time, pickle, json, SharedArray as sa, h5py, math, numpy as np, numexpr as ne, gc, sys, cv2;
 
 from fov.fov2 import getFov, reverseMapPixel, reverseMapPixel_Initial;
-from utils.preprocess import printProgressBar, printLoader;
+# from utils.preprocess import printProgressBar, printLoader;
 from multiprocessing import Process;
 from albumentations import Compose;
 import albumentations as A;
@@ -158,7 +158,7 @@ class batch_generator:
 		self.seed_counter = 0;
 		self.current_total_batch = 0;
 		self.multi_model = multi_model;
-		self.printLoader = printLoader( 'A' if my_index==0 else 'B' );
+# 		self.printLoader = printLoader( 'A' if my_index==0 else 'B' );
 		self.cpus = float(cpus);
 		self.aug = aug;
 		self.bio = bio;
@@ -199,7 +199,7 @@ class batch_generator:
 		return [self.current_total_batch, self.total_batches];
 
 	def finish( self ):
-		printProgressBar( self.total_batches, self.total_batches, prefix = str(self.total_batches) + '/' + str( self.total_batches ) );
+# 		printProgressBar( self.total_batches, self.total_batches, prefix = str(self.total_batches) + '/' + str( self.total_batches ) );
 		self.finished = True;
 
 	def get_steps( self ):
@@ -325,11 +325,11 @@ class batch_generator:
 		self.models_config[2] = math.floor( ys_len/self.batch_size );
 
 	def sync( self, message, sync_sleep=1.5, check_every=0.5 ):
-		self.printLoader( message );
+# 		self.printLoader( message );
 
 		if self.multi_model:
 			while not np.all( self.models_config[:2] ):
-				self.printLoader( message );
+# 				self.printLoader( message );
 				self.models_config[self.my_index] = 1;
 				time.sleep( check_every );
 
